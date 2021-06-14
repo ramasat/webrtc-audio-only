@@ -22,7 +22,8 @@ function handleAudio()
 {
 	console.log("START!!");
 	//getting local video stream 
-    navigator.mediaDevices.getUserMedia({ audio: true })
+    console.log(JSON.stringify(navigator.mediaDevices.getSupportedConstraints()));
+	navigator.mediaDevices.getUserMedia({ audio: {sampleSize: 16, channelCount: 2} })
 	  .then(gotStream)
 	  .catch(function (err) { 
 	   console.log(err.name + ": " + err.message);         
